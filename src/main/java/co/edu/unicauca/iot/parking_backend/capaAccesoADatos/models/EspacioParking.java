@@ -22,7 +22,7 @@ public class EspacioParking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEspacio;  
 
-    @Column(name = "status")
+    @Column(name = "status", columnDefinition = "BOOLEAN")
     private boolean status; //= ocupado  true = SI  o false = NO // para cada espacio en la imagen.
 
 }

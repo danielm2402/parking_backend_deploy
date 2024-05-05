@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
-@RequestMapping("/imagen")
+@RequestMapping("/api/imagen")
 public class ImagenController {
 
     @Autowired
     private ImagenService imagenService;
 
-    @PostMapping("/imagen/upload")
+    @PostMapping("/upload")
     public ResponseEntity<String> uploadImagen(@RequestPart("imagen") MultipartFile imagen) {
         try {
             Imagen imagenGuardada = imagenService.guardarImagen(imagen);

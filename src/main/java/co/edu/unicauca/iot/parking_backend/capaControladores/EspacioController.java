@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.unicauca.iot.parking_backend.capaAccesoADatos.models.EspacioParking;
 import co.edu.unicauca.iot.parking_backend.fachadaServicios.services.EspacioService;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +21,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
-@RequestMapping("/espacios")
+@RequestMapping("/api/espacios")
 public class EspacioController {
 
     @Autowired
     private EspacioService espacioService;
 
-    @PostMapping("/espacios/upload")
-    public EspacioParking guardarEspacio(@RequestBody EspacioParking espacio) {
-        return espacioService.guardarEspacio(espacio);
+    @PostMapping("/upload")
+    public List<EspacioParking> guardarEspacios(@RequestBody List<EspacioParking> espacios) {
+        return espacioService.guardarEspacios(espacios);
     }
 
-    @GetMapping("/espacios/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<EspacioParking> obtenerEspacioPorId(@PathVariable Integer id) {
         Optional<EspacioParking> espacioOptional = espacioService.obtenerEspacioPorId(id);
         if (espacioOptional.isPresent()) {
