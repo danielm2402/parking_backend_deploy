@@ -19,10 +19,10 @@ import lombok.Setter;
 public class EspacioParking {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEspacio;  
 
     @Column(name = "status", columnDefinition = "BOOLEAN")
-    private boolean status; //= ocupado  true = SI  o false = NO // para cada espacio en la imagen.
+    private boolean status; //ocupado  true = 1  o false = 0 // para cada espacio en la imagen.
 
 }
