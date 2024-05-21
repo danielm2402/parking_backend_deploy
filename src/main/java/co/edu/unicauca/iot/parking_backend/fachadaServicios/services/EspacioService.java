@@ -31,4 +31,8 @@ public class EspacioService {
         return espacioRepository.findById(id);
     }
 
+    public List<EspacioParking> obtenerEspacios() {
+        return (List<EspacioParking>) espacioRepository.findAll();
+    }
+
 }

@@ -42,4 +42,10 @@ public class EspacioController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/get")
+    public ResponseEntity<List<EspacioParking>> obtenerEspacios() {
+        List<EspacioParking> espacios = espacioService.obtenerEspacios();
+        return new ResponseEntity<>(espacios, HttpStatus.OK);
+    }
 }
