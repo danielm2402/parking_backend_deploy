@@ -5,7 +5,8 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Copia el JAR construido de tu aplicación Spring Boot en el contenedor
-COPY target/parking_backend-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY --from=build /home/app/target/war_name.war app.war
+
 
 # Expone el puerto 8080
 EXPOSE 8080
